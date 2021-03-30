@@ -1,0 +1,109 @@
+body
+{
+    height: 100vh;
+    width: 100%;
+    background: url(../images/login.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.overlay
+{
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.container
+{
+    width: 50%;
+    margin: auto;
+    position: relative;
+    top: 4%;
+    background: rgb(255,255,255,0.8);
+    color: #333232;
+    padding: 27px;
+    border-radius: 13px;
+}
+
+
+.container--register
+{
+    display: none;
+}
+
+.container>div
+{
+    width: 47%;
+    margin: auto;
+}
+
+.container>div>label,
+.container>div>input
+{
+    display: block;
+}
+
+.container>div>input.invalid
+{
+    border: 2px solid red;
+}
+
+.container>div h4
+{
+    font-size: 28px;
+    margin: 12px 0px;
+}
+
+.container>div>input
+{
+    width: 100%;
+    border: none;
+    padding: 10px;
+}
+
+.container>div>input,
+.container>div>label,
+.container>div>button
+{
+    margin-bottom: 14px;
+}
+
+
+.container>div>button{
+    border: none;
+    padding: 16px 55px;
+    background: #3f51b5;
+    color: #fff;
+}
+
+.container.isRegister .container--login
+{
+    display: none;
+}
+
+.container.isRegister .container--register
+{
+    display: block;
+}
+
+.toggleLogin
+{
+    display: block;
+    color: #311b92;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.errorContainer>span
+{
+    display: block;
+    color: red;
+    font-size: 10px;
+}

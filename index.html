@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="container--login">
+            <span class="errorContainer"></span>
+            <h4>Login</h4>
+            <label for="user_email">Email</label>
+            <input type="text" name="Email" id="user_email" class="required" required>
+            <label for="user_passowrd">Password</label>
+            <input type="password" name="Password" id="user_passowrd" class="required" required>
+            <button id="login">Login</button>
+            <span class="toggleLogin">Sign Up</span>
+        </div>
+        <div class="container--register">
+            <span class="errorContainer"></span>
+            <h4>Register</h4>
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="First Name" class="required">
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="Last Name" class="required">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" class="required">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="Password" class="required">
+            <button id="register">Register</button>
+            <span class="toggleLogin">Already Registered? Login</span>
+        </div>
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
