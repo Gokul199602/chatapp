@@ -9,14 +9,16 @@ contanerElement.forEach((els)=>{
     })
 })
 
+$(document).ready(function(){
+    loginButton.addEventListener("click",function(){
+        login();
+    });
+    
+    registerButton.addEventListener("click",function(){
+        register();
+    });
+})
 
-loginButton.addEventListener("click",function(){
-    login();
-});
-
-registerButton.addEventListener("click",function(){
-    register();
-});
 
 
 function login()
@@ -24,7 +26,18 @@ function login()
     let isValidated = validateInput(".container--login");
     if(isValidated)
     {
-        alert("Logged In");
+        let inputObj = {};
+        document.querySelectorAll(".container--login input").forEach((inputEls)=>{
+            let sendName = inputEls.getAttribute("data-send");
+            inputObj[sendName] = inputEls.value;
+        });
+        callLogin(inputObj).then((data)=>{
+            if(data.response)
+            {
+                alert("Loggged in");
+                window.location.href="chat.html";
+            }
+        })
     }
 }
 
@@ -33,7 +46,19 @@ function register()
     let isValidated = validateInput(".container--register");
     if(isValidated)
     {
-        alert("Registered");
+        let inputObj = {};
+        document.querySelectorAll(".container--register input").forEach((inputEls)=>{
+            let sendName = inputEls.getAttribute("data-send");
+            inputObj[sendName] = inputEls.value;
+        });
+        callRegister(inputObj).then((data)=>{
+            if(data.response)
+            {
+                container.classList.toggle("isRegister");
+                alert("Registered");
+                window.location.href="chat.html";
+            }
+        })
     }
 }
 
@@ -86,4 +111,41 @@ function validateInput(target){
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+}
+
+
+function callLogin(data)
+{
+    return new Promise((resove,reject)=>{
+        $.ajax({
+            url:'http://localhost:8000/users/login',
+            method:'POST',
+            data:data,
+            success:function(callData)
+            {
+                resove(callData);
+            },
+            error:function(err){
+                reject(err);
+            }
+        });
+    });
+}
+
+function callRegister(data)
+{
+    return new Promise((resove,reject)=>{
+        $.ajax({
+            url:'http://localhost:8000/users/register',
+            method:'POST',
+            data:data,
+            success:function(callData)
+            {
+                resove(callData);
+            },
+            error:function(err){
+                reject(err);
+            }
+        });
+    });
 }
