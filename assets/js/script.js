@@ -149,7 +149,7 @@ function callLogin(data)
 {
     return new Promise((resove,reject)=>{
         $.ajax({
-            url:'http://localhost:8000/users/login',
+            url:'https://chat-app-goku.herokuapp.com/users/login',
             method:'POST',
             data:data,
             success:function(callData)
@@ -167,7 +167,7 @@ function callRegister(data)
 {
     return new Promise((resove,reject)=>{
         $.ajax({
-            url:'http://localhost:8000/users/register',
+            url:'https://chat-app-goku.herokuapp.com/users/register',
             method:'POST',
             data:data,
             success:function(callData)

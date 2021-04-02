@@ -1,5 +1,5 @@
 const logoutButton = document.getElementById("logout");
-const socket = io("http://localhost:3000");
+const socket = io("https://polling-api.herokuapp.com");
 const appDetails = {
     userDetails:{},
     users:[],
@@ -261,7 +261,7 @@ function getChatUsers()
 {
     return new Promise((resove,reject)=>{
         $.ajax({
-            url:'http://localhost:8000/users/getusers',
+            url:'https://chat-app-goku.herokuapp.com/users/getusers',
             method:'GET',
             success:function(callData)
             {
@@ -278,7 +278,7 @@ function getChatHistory()
 {
     return new Promise((resove,reject)=>{
         $.ajax({
-            url:'http://localhost:8000/users/getChats',
+            url:'https://chat-app-goku.herokuapp.com/users/getChats',
             method:'GET',
             success:function(callData)
             {
