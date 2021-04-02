@@ -9,7 +9,22 @@ contanerElement.forEach((els)=>{
     })
 })
 
+var goToChat = function()
+{
+    window.location.href="chat.html"
+}
+
+const isLoggedIn = function()
+{
+    let userDetails = sessionStorage.userDetails;
+    if(userDetails)
+    {
+        goToChat();
+    }
+}
+
 $(document).ready(function(){
+    isLoggedIn();
     loginButton.addEventListener("click",function(){
         login();
     });
@@ -17,6 +32,9 @@ $(document).ready(function(){
     registerButton.addEventListener("click",function(){
         register();
     });
+    logoutButton.addEventListener("click",function(){
+        window.location.href="/";
+    })
 })
 
 
@@ -34,11 +52,20 @@ function login()
         callLogin(inputObj).then((data)=>{
             if(data.response)
             {
-                alert("Loggged in");
                 window.location.href="chat.html";
+                storeOnLocalStorage(data.data[0]);
+            }
+            else
+            {
+                alert(data.responseString);
             }
         })
     }
+}
+
+function storeOnLocalStorage(data)
+{
+    sessionStorage.userDetails =  JSON.stringify(data);
 }
 
 function register()
@@ -56,7 +83,11 @@ function register()
             {
                 container.classList.toggle("isRegister");
                 alert("Registered");
-                window.location.href="chat.html";
+            }
+            else
+            {
+                container.classList.toggle("isRegister");
+                alert(data.responseString);
             }
         })
     }

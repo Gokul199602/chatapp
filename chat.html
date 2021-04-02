@@ -1,1 +1,47 @@
-<h2>Welcome to chat page</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/chat.css">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="username">Gokul Pratheep</span>
+        <span class="logout">
+            <button id="logout">Logout</button>
+        </span>
+    </nav>
+    <div class="chatContainer">
+        <div class="chatContainer--chat">
+            <div class="chatContainer--chat--container">
+                
+            </div>
+        </div>
+        <div class="chatMessages">
+            <div class="chatMessages--inputText">
+                <span class="imageElement"></span>
+                <textarea name="" id="chatMessageText" placeholder="Start Chatting ..."></textarea>
+            </div>
+            <div class="chatMessages--actions">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                <span class="uploadImage">
+                    <input id="prifileImageUpload" type="file" accept="image/*">
+                    <i class="fa fa-paperclip" aria-hidden="true"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone-with-data-1970-2030.min.js"></script>
+    <script src="assets/js/chat.js"></script>
+</body>
+</html>
